@@ -1,0 +1,184 @@
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Of Usama</title>
+    <link rel="stylesheet" href="../Abstract/style.css" type="text/css" />
+    <link rel="stylesheet" href="../stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="../stylesheets/bootstrap-responsive.css">
+    <script src="../javascripts/bootstrap.js"></script>
+	<script src="../javascripts/underscore.js"></script>
+    <link rel="stylesheet" href="../Abstract/nivo-slider.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../Abstract/jquery-1.4.3.min.js"></script>
+    
+    <style>
+	.update{
+		
+background: url(../images/form.png) no-repeat;
+width: 500px;
+height: 620px;
+margin: 0 auto;
+padding-top: 74px;
+margin-top: 50px;
+
+	
+	}
+	.update form{
+		position:relative;
+		left:110px;
+		width:230px;
+		
+	}
+	.tableSpan{
+		background-color:white;
+	}
+	
+	</style>
+	
+</head>
+<body>
+    <div class="container">
+        <header>
+		
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand" href="/">Home</a>
+                    <ul class="nav">
+					
+						<% if(role=='Admin') { %>
+							<li><a href='/dashboard/AddSup'>Add Supervisor</a></li>
+							<li><a href='/dashboard/RmvSup'>Remove Supervisor</a></li>
+							<li><a href='/dashboard/AddEmp'>Add Employee</a></li>
+							<li><a href='/dashboard/RmvEmp'>Remove Employee</a></li>
+							<li><a href='/dashboard/AddPro'>Add Project</a></li>
+							<li><a href='/dashboard/RmvPro'>Remove Project</a></li>
+							<li><a href='/dashboard/Messages'>Notify</a></li>
+							<li><a href='/dashboard/Notify'>Inbox</a></li>
+							<li><a href='/dashboard/Profile'>Profile</a></li>
+							
+						
+						<% } %>
+						<% if(role=='Supervisor') { %>
+							<li><a href='/dashboard/AddEmp'>Add Employee</a></li>
+							<li><a href='/dashboard/RmvEmp'>Remove Employee</a></li>
+							<li><a href='/dashboard/Messages'>Notify</a></li>
+							<li><a href='/dashboard/Notify'>Inbox</a></li>
+							<li><a href='/dashboard/MyProjects'>My Projects</a></li>
+							<li><a href='/dashboard/Profile'>Profile</a></li>
+							
+						<% } %>
+						<% if(role=='Employee') { %>
+							<li><a href='/dashboard/Messages'>Notify</a></li>
+							<li><a href='/dashboard/Notify'>Inbox</a></li>
+							<li><a href='/dashboard/MyProjects'>My Projects</a></li>
+							<li><a href='/dashboard/Profile'>Profile</a></li>
+							
+						<% } %>
+					
+						
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section>
+			<div class="span2">
+			</div><div class="span8"><h2>Want to remove members? Sure Go Ahead..!</h2>
+			</div>
+			<div class="span2">
+			</div>
+            <div class='update'>
+				<div class='tableSpan' >
+				<table class='table  table-bordered'>
+				<tr><th>Title</th><th>Complexity</th><th>Type</th><th>Budget</th><th>Duration</th><th>Delete</th></tr>
+				<% if(cu.length>0) { %>
+                <% cu.forEach(function(item){ %>
+				<tr>
+					<td><label><%= item.title %></label></td>
+					<td><label><%= item.Complex %></label></td>
+					<td><label><%= item.Type %></label></td>
+					<td><label><%= item.Budget %></label></td>
+					<td><label><%= item.Duration %></label></td>
+					
+					
+					<td><label><a href='/dashboard/RmvPro/<%- item._id %>'>Delete</a></label></td>
+					
+					
+					
+					
+				</tr>
+				<% }); %>
+                <% } else { %>
+                <h1>Sorry it seem you have no member in your firm so far.<a href='/dashboard/AddEmp' >Click Here</a> to add one.</h1>
+                <% } %>
+					
+				</table>	
+				</div>	
+				
+			</div>
+            <div class="content">
+                     <div class="row">
+                         <div class="span4">
+                                <img src="../images/Introduction.jpeg" class="thumbnail img-rounded" >
+                                <h4>Introduction Of Petzro</h4>
+                                <p>Petzro is simple and easy management solution web application which is build using recent and latest technologies. Petzro makes it easier for you to manage projects and assignments using the online web portal.</p>
+
+                         </div>
+                         <div class="span4">
+                             <img src="../images/Git.png" class="thumbnail img-rounded" >
+                             <h4>Open Source</h4>
+                             <p>Petzro shopping solution is build using open source technologies, includes NodeJS, MongoDB, ExpressJS, and BackboneJS. The source code and the complete project is available open source on GIT.</p>
+
+                         </div>
+                         <div class="span4">
+                             <img src="../images/nodejs.png" class="thumbnail img-rounded" >
+                             <h4>Technologies</h4>
+                             <p>NodeJS, a javascript server side language is used to implement the server of the website and the database used to storage is MongoDB which is also an open source technology.</p>
+
+                         </div>
+
+                     </div>
+
+            </div> 
+
+        </section>
+        <footer class="footer" >
+            <div class="row">
+                <div class="span4" class="site-links">
+                  <h4>Site Links</h4>
+                    <p>
+                        <ul>
+                    <li style="list-style: none"><a href="#"  style="text-decoration: none">Project Management</a></li>
+                        <li style="list-style: none"><a href="#" style="text-decoration: none">Home</a></li>
+                    <li style="list-style: none"><a href="#" style="text-decoration: none">About Us</a>     </li>
+                    <li style="list-style: none"><a href="#" style="text-decoration: none" >Contact US</a>        </li>
+
+                </ul>
+                    </p>
+                </div>
+                <div class="span4">
+                   <h4>Find Us</h4>
+                    <p></p>
+                </div>
+                <div class="span4">
+                    <h4>Join Mailing List</h4>
+                     <p>
+                        <form class="navbar-form pull-left well">
+                        <input type="email" placeholder="Type Your Email Here" class="span2">
+                        <button type="submit" class="btn">Submit</button>
+                        </form>
+                    </p>
+                </div>
+
+            </div>
+
+
+
+        </footer>
+
+
+    </div>
+
+    <script type="text/javascript">
+       
+    </script>
+</body>
+</html>

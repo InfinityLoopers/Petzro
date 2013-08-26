@@ -1,0 +1,178 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Of <%- cu.fname %></title>
+    <link rel="stylesheet" href="../Abstract/style.css" type="text/css" />
+    <link rel="stylesheet" href="../stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="../stylesheets/bootstrap-responsive.css">
+    <script src="../javascripts/bootstrap.js"></script>
+	<script src="../javascripts/underscore.js"></script>
+    <link rel="stylesheet" href="../Abstract/nivo-slider.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../Abstract/jquery-1.4.3.min.js"></script>
+    
+    <style>
+	.update{
+		
+background: url(../images/form.png) no-repeat;
+width: 500px;
+height: 500px;
+margin: 0 auto;
+padding-top: 74px;
+margin-top: 50px;
+
+	
+	}
+	.update form{
+		position:relative;
+		top:60px;
+		left:80px
+	}
+	
+	</style>
+	
+</head>
+<body>
+    <div class="container">
+        <header>
+		
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand" href="/">Home</a>
+                    <ul class="nav">
+						<% if(cu.role=='Admin') { %>
+							<li><a href='/dashboard/AddSup'>Add Supervisor</a></li>
+							<li><a href='/dashboard/RmvSup'>Remove Supervisor</a></li>
+							<li><a href='/dashboard/AddEmp'>Add Employee</a></li>
+							<li><a href='/dashboard/RmvEmp'>Remove Employee</a></li>
+							<li><a href='/dashboard/AddPro'>Add Project</a></li>
+							<li><a href='/dashboard/RmvPro'>Remove Project</a></li>
+							<li><a href='/dashboard/Messages'>Notify</a></li>
+							<li><a href='/dashboard/Notify'>Inbox</a></li>
+							<li><a href='/dashboard/Profile'>Profile</a></li>
+							
+						
+						<% } %>
+						<% if(cu.role=='Supervisor') { %>
+							<li><a href='/dashboard/AddEmp'>Add Employee</a></li>
+							<li><a href='/dashboard/RmvEmp'>Remove Employee</a></li>
+							<li><a href='/dashboard/Messages'>Notify</a></li>
+							<li><a href='/dashboard/Notify'>Inbox</a></li>
+							<li><a href='/dashboard/MyProjects'>My Projects</a></li>
+							<li><a href='/dashboard/Profile'>Profile</a></li>
+							
+						<% } %>
+						<% if(cu.role=='Employee') { %>
+							<li><a href='/dashboard/Messages'>Notify</a></li>
+							<li><a href='/dashboard/Notify'>Inbox</a></li>
+							<li><a href='/dashboard/MyProjects'>My Projects</a></li>
+							<li><a href='/dashboard/Profile'>Profile</a></li>
+							
+						<% } %>
+						
+						
+						
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section>
+			<% if(!theCall) { %>
+			<div class="span2">
+			</div>
+			<div class="span8"><h2>Hi <%= cu.fname %> Welcome To Dashboard Of Petzro.</h2>
+			</div>
+			<div class="span2">
+			</div>
+            <% } else { %>
+			<div class="span3">
+			</div>
+			<div class="span6"><h2><%= theCall %></h2>
+			</div>
+			<div class="span3">
+			</div>
+            
+			<% } %>
+			<div class='update'>
+				<div class='span3'>
+				<form class='well' method='post' action='/dashboard/profile/update/<%- cu._id %>'>
+					<h4>Your Profile.</h4>
+					<input type='text' name='fname' value='<%- cu.fname %>'><br>
+					<input type='text' name='lname' value='<%- cu.lname %>'><br>
+					<input type='text' name='designation' value='<%- cu.designation %>'><br>
+					<input type='email' name='email' value='<%- cu.email %>'><br>
+					<input type='password' name='password'  value='<%- cu.password %>'><br>
+					<input class='btn btn-primary' style='width:97%' type='submit' name='submit' value='Update'>
+				
+					
+				</form>
+				</div>	
+				
+			</div>
+            <div class="content">
+                     <div class="row">
+                         <div class="span4">
+                                <img src="../images/Introduction.jpeg" class="thumbnail img-rounded" >
+                                <h4>Introduction Of Petzro</h4>
+                                <p>Petzro is simple and easy management solution web application which is build using recent and latest technologies. Petzro makes it easier for you to manage projects and assignments using the online web portal.</p>
+
+                         </div>
+                         <div class="span4">
+                             <img src="../images/Git.png" class="thumbnail img-rounded" >
+                             <h4>Open Source</h4>
+                             <p>Petzro shopping solution is build using open source technologies, includes NodeJS, MongoDB, ExpressJS, and BackboneJS. The source code and the complete project is available open source on GIT.</p>
+
+                         </div>
+                         <div class="span4">
+                             <img src="../images/nodejs.png" class="thumbnail img-rounded" >
+                             <h4>Technologies</h4>
+                             <p>NodeJS, a javascript server side language is used to implement the server of the website and the database used to storage is MongoDB which is also an open source technology.</p>
+
+                         </div>
+
+                     </div>
+
+            </div>
+
+        </section>
+        <footer class="footer" >
+            <div class="row">
+                <div class="span4" class="site-links">
+                  <h4>Site Links</h4>
+                    <p>
+                        <ul>
+                    <li style="list-style: none"><a href="#"  style="text-decoration: none">Project Management</a></li>
+                        <li style="list-style: none"><a href="#" style="text-decoration: none">Home</a></li>
+                    <li style="list-style: none"><a href="#" style="text-decoration: none">About Us</a>     </li>
+                    <li style="list-style: none"><a href="#" style="text-decoration: none" >Contact US</a>        </li>
+
+                </ul>
+                    </p>
+                </div>
+                <div class="span4">
+                   <h4>Find Us</h4>
+                    <p></p>
+                </div>
+                <div class="span4">
+                    <h4>Join Mailing List</h4>
+                     <p>
+                        <form class="navbar-form pull-left well">
+                        <input type="email" placeholder="Type Your Email Here" class="span2">
+                        <button type="submit" class="btn">Submit</button>
+                        </form>
+                    </p>
+                </div>
+
+            </div>
+
+
+
+        </footer>
+
+
+    </div>
+
+    <script type="text/javascript">
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Petzro | The Management Solutions</title>
+    <link rel="stylesheet" href="Abstract/style.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+    <script src="/javascripts/bootstrap.js"></script>
+    <link rel="stylesheet" href="Abstract/nivo-slider.css" type="text/css" media="screen" />
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand" href="/">Home</a>
+                    <ul class="nav">
+                        <li ><a href="/AboutUs">About Us</a></li>
+                        <li class="divider-vertical"><a href="/ContactUS">Contact Us</a></li>
+						<% if(sessionsetted!=true){ %>
+						<li ><a href="/Sign-Up">Sign Up</a></li>
+						<li class="divider-vertical"><a href="/Login">Login</a></li>
+						<% }else { %>
+						<li ><a href="/Logout">Logout</a></li>
+						<% } %>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div id="slider-wrapper">
+
+                <div id="slider" class="nivoSlider">
+                    <img src="images/Leaf.jpg" alt=""  title="Clear And Pleasant Working Environment" />
+                    <a href="http://dev7studios.com"><img src="images/Business.png" alt="" title="Ease Of Management As Par Your Needs" /></a>
+                    <img src="images/Email.png" alt=""  title="Instant Email Notifications Of All Activities" />
+                    <img src="images/nemo.jpg" alt="" title="Fluid As Water" />
+                </div>
+                <div id="htmlcaption" class="nivo-html-caption">
+                    <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+                </div>
+
+            </div>
+            <div class="content">
+                     <div class="row">
+                         <div class="span4">
+                                <img src="images/Introduction.jpeg" class="thumbnail img-rounded" >
+                                <h4>Introduction Of Petzro</h4>
+                                <p>Petzro is simple and easy management solution web application which is build using recent and latest technologies. Petzro makes it easier for you to manage projects and assignments using the online web portal.</p>
+
+                         </div>
+                         <div class="span4">
+                             <img src="images/Git.png" class="thumbnail img-rounded" >
+                             <h4>Open Source</h4>
+                             <p>Petzro shopping solution is build using open source technologies, includes NodeJS, MongoDB, ExpressJS, and BackboneJS. The source code and the complete project is available open source on GIT.</p>
+
+                         </div>
+                         <div class="span4">
+                             <img src="images/nodejs.png" class="thumbnail img-rounded" >
+                             <h4>Technologies</h4>
+                             <p>NodeJS, a javascript server side language is used to implement the server of the website and the database used to storage is MongoDB which is also an open source technology.</p>
+
+                         </div>
+
+                     </div>
+
+            </div>
+
+        </section>
+        <footer class="footer" >
+            <div class="row">
+                <div class="span4" class="site-links">
+                  <h4>Site Links</h4>
+                    <p>
+                        <ul>
+                    <li style="list-style: none"><a href="#"  style="text-decoration: none">Project Management</a></li>
+                        <li style="list-style: none"><a href="#" style="text-decoration: none">Home</a></li>
+                    <li style="list-style: none"><a href="#" style="text-decoration: none">About Us</a>     </li>
+                    <li style="list-style: none"><a href="#" style="text-decoration: none" >Contact US</a>        </li>
+
+                </ul>
+                    </p>
+                </div>
+                <div class="span4">
+                   <h4>Find Us</h4>
+                    <p></p>
+                </div>
+                <div class="span4">
+                    <h4>Join Mailing List</h4>
+                     <p>
+                        <form class="navbar-form pull-left well">
+                        <input type="email" placeholder="Type Your Email Here" class="span2">
+                        <button type="submit" class="btn">Submit</button>
+                        </form>
+                    </p>
+                </div>
+
+            </div>
+
+
+
+        </footer>
+
+
+    </div>
+
+    <script type="text/javascript" src="Abstract/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="Abstract/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider();
+        });
+    </script>
+</body>
+</html>
